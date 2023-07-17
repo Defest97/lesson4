@@ -1,0 +1,32 @@
+<!-- 
+Задача 4. Создание сервиса корзины для интернет-магазин
+Описание: Вы разрабатываете интернет-магазин и вам нужно создать сервис корзины, который будет использоваться на странице товаров и в шапке сайта,
+ где будет отображаться количество выбранных товаров и их стоимость.
+Требования:
+
+
+•Сервис должен иметь методы для добавления товара в корзину, удаления товара из корзины и очистки корзины.
+
+•Сервис должен хранить данные о выбранных товарах и их количестве.
+
+•Сервис должен рассчитывать общую стоимость товаров в корзине.
+
+•Сервис должен иметь метод для получения текущего состояния корзины. -->
+<p>Product:</p>
+<ol>
+    <li *ngFor="let product of Products;let i=index">
+        Name: {{product.name}}, Price: {{product.price}}
+        <input type="number" placeholder="Count" #Count>
+        <button (click)="addProduct(product.name,Count.value,product.price);Count.value='';">Buy</button>
+    </li>
+</ol>
+
+<p>Basket:</p>
+<ol>
+    <li *ngFor="let product of Busket;let i=index">
+        Name: {{product.name}}, Count: {{product.count}}, Price: {{product.price}}
+        <span (click)="delProduct(i)" style="color: red;">[X]</span>
+    </li>
+</ol>
+<p>Total price: {{Price}}</p>
+<button (click)="cleanProducts()">Clean</button>
